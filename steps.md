@@ -10,6 +10,10 @@
       - Click Alias -> banksie.app (CF distribution)
    4. Create an A record for the subdomain S3 bucket
 6. Make sure nameservers have propogated. (Can take up to 48 hours)
+7. Request SSL Certificate from AWS Certificate Manager
+   1. Add CNAMES to hosted zone in Route %#
+   2. Once certificate is issued, add certificate to CF distribution
+   3. Wait for CF ditribution to redeploy
 
 
 
