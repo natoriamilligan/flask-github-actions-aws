@@ -9,7 +9,7 @@
    3. Create an A record for the root domain pointing to the CloudFront distribution
       - Click Alias -> banksie.app (CF distribution)
    4. Create an A record for the subdomain S3 bucket
-6. Create an S3 bucket with a URL as the name
+6. Make sure nameservers have propogated. (Can take up to 48 hours)
 
 
 
@@ -22,5 +22,5 @@
 
 ## What I Learned
 - How to use Route 53 DNS service for an existing domain
-- How to create records in Route 53
+- How to create alias records in Route 53 to access AWS resources
 - How to redirect an S3 bucket to another S3 bucket
