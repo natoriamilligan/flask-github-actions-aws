@@ -12,7 +12,7 @@
 6. Make sure nameservers have propogated. (Can take up to 48 hours)
 7. Request SSL Certificate from AWS Certificate Manager
    1.Include root domain and subdomain in certificate
-   2. Add CNAMES to hosted zone in Route 53
+   2. Add CNAMES to hosted zone in Route 53 (ACM did this automatically and added A and AAAA records for the root)
    3. Once certificate is issued, add certificate to CF distribution
    4. Wait for CF ditribution to redeploy
 
