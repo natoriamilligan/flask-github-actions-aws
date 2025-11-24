@@ -36,6 +36,8 @@
 * Amazon Cloud Front (First 1TB free/m)
 * Amazon S3 Free Tier
 
+* Amazon ECS
+* Amazon ECR
 
 ## What I Learned
 - How to use Route 53 DNS service for an existing domain
