@@ -1,4 +1,6 @@
 # App Deployment Steps
+
+## Frontend
 1. Register a domain using a Domain Registrar
 2. Create an S3 bucket with the same name as the root domain
 3. Use Route 53 as the DNS service for the domain 
@@ -14,6 +16,15 @@
    5. add index.html as the default root object
    6. Wait for CF ditribution to redeploy
 7. Add frontend files to S3 bucket
+
+## Backend
+1. Create IAM user to handle Github Actions
+   1. Attach Policies:
+      - AmazonEC2ContainerRegistryFullAccess - allows user to use AWS ECR
+      - AmazonECS_FullAccess - allows user to use AWS ECS
+   2. Generate access key
+3. Create repository for ECS image
+4. Create ECS Cluster
 
 
 
