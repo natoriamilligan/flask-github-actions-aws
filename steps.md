@@ -44,6 +44,7 @@
      - Choose at least 2 subnets
    - Service will have an error until we push an image (Next Step)
 7. Push Docker image to ECR via AWs CLI
+   - 
 8. Set up Github Actions for automatic deployments
 
 
