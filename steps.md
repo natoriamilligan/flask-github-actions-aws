@@ -36,7 +36,15 @@
      - Add image URI
      - Define port mapping = TCP Port 5000 HTTP
 6. Create a service
-
+   - Add task definition previously created
+   - Choose capacity provider strategy (FARGATE)
+   - Desired tasks = 1
+   - Networking
+     - Choose default VPC
+     - Choose at least 2 subnets
+   - Service will have an error until we push an image (Next Step)
+7. Push Docker image to ECR via AWs CLI
+8. Set up Github Actions for automatic deployments
 
 
 
