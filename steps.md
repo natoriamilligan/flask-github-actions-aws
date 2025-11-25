@@ -76,4 +76,5 @@
 - How to create an SSL certificate with AWS Certificate Manager and attach it to a CloudFront Distribution
 - How to create cache invalidations
 - AWS ECR and how to push an image via the CLI
+- How to add secrets and variables to Github repository
 - How to automate deployment with Github Actions
