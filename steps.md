@@ -53,6 +53,7 @@
 9. Confirm that image was successfully push to the ECR repository via the public IP
 10. Set up Github Actions for automatic deployments
     1. Add secrets and variables to the Github repository
+    2. Create workflow and push to Github
 
 
 
