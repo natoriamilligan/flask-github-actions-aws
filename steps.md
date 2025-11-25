@@ -49,8 +49,9 @@
    3. Build docker image
    4. Tag image
    5. Push image
-8. Force new deployment for your task and confirm that image was successfully push to the ECR repository
-8. Set up Github Actions for automatic deployments
+8. Force new deployment for your service 
+9. Confirm that image was successfully push to the ECR repository via the public IP
+10. Set up Github Actions for automatic deployments
 
 
 
