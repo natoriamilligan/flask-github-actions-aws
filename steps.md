@@ -60,6 +60,15 @@
    - Choose full configuration
    - Free tier
    - Create username and password
+   - Choose instance configuration (Burstable classes / db.t3.micro)
+   - Storage type: General Purpose SSD, 20 GiB
+   - Choose same VPC as ECS task
+   - Create a new VPC security group
+   - Port: 5432
+2. In EC2 console, go to security groups
+   - Choose the RDS security group just made
+   - Add inbound rule so the task security group can access the RDS
+3. Add database url to local app
 
 
 
@@ -75,6 +84,9 @@
 * Github Actions
 * CMD
 * Docker
+* AWS RDS
+* AWS EC2 (Security Groups)
+* AWS Secrets Manager
 
 ## What I Learned
 - How to use Route 53 DNS service for an existing domain
