@@ -73,7 +73,7 @@
    - Add a secret for database URL
    - Choose other type of secret
    - Add key/value for database URL
-5. Add policy to taskexecution role to read secrets from Secrets Manager
+5. Create inline policy to taskexecution role to read secrets from Secrets Manager 
 
 
 
