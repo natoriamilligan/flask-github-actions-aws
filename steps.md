@@ -40,7 +40,9 @@
      - all traffic for port 80 and port 443 from anywhere
      - allow all outbound traffic to ECS tasks (the banksie-sg)
    - create target group for ecs tasks (For an IP but do not add any targets)
-7. Create a service
+   - add ALB url to frontend
+7. Add new files to S3 bucket
+8. Create a service
    - Add task definition previously created
    - Choose capacity provider strategy (FARGATE)
    - Desired tasks = 1
@@ -49,15 +51,15 @@
      - Choose at least 2 subnets
    - Add application load balancer
    - Service will have an error until we push an image (Next Step)
-8. Push Docker image to ECR via AWs CLI
+9. Push Docker image to ECR via AWs CLI
    1. Configure AWS CLI credentials
    2. Log into ECR (add command here and wherever else needed)
    3. Build docker image
    4. Tag image
    5. Push image
-9. Force new deployment for your service 
-10. Confirm that image was successfully push to the ECR repository via the public IP
-11. Set up Github Actions for automatic deployments
+10. Force new deployment for your service 
+11. Confirm that image was successfully push to the ECR repository via the public IP
+12. Set up Github Actions for automatic deployments
     1. Add secrets and variables to the Github repository
     2. Create workflow and push to Github
 
