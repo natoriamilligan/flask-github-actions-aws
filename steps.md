@@ -37,6 +37,8 @@
      - Define port mapping = TCP Port 5000 HTTP
 6. Create ALB in EC2 console
    - create security group for ALB and add to it
+     - all traffic for port 80 and port 443 from anywhere
+     - allow all outbound traffic anywhere
    - create target group for ecs tasks (For an IP but do not add any targets)
 7. Create a service
    - Add task definition previously created
