@@ -59,7 +59,8 @@
    5. Push image
 10. Force new deployment for your service 
 11. Confirm that image was successfully push to the ECR repository via the public IP
-12. Set up Github Actions for automatic deployments
+12. Create an SSL certificate for you ALB endpoint
+13. Set up Github Actions for automatic deployments
     1. Add secrets and variables to the Github repository
     2. Create workflow and push to Github
 
