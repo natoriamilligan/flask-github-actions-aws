@@ -52,7 +52,10 @@
      - Define port mapping = TCP Port 80 HTTP (Gunicorn is listening on port 80 inside the container)
 6. Create and attach an inline policy to the task execution role to read secrets from AWS Secrets Manager
 7. Create ALB in EC2 console
-   - create security group for ALB and add to it
+   - Add listener for HTTP and HTTPS
+     - Request new ACM certificate for api.banksie.app
+     - add a record to Route 53 for api.banksie.app
+   - create security group for ALB
      - allow inbound HTTP and HTTPS traffic from anywhere
      - allow all outbound traffic to ECS tasks (the banksie-sg)
    - create target group for ecs tasks (For an IP but do not add any targets)
