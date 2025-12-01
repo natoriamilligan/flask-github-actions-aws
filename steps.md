@@ -26,7 +26,7 @@
    - Choose VPC (must be the same that ECS tasks use)
    - Create and name new VPC security group
    - Port: 5432
-2. Add the database endpoint to Flask app code
+2. Add the database endpoint to Flask app
 3. Create environment variable in AWS Secrets Manager console
    - Add a secret for the database URL
    - Choose other type of secret
@@ -53,19 +53,20 @@
 6. Create and attach an inline policy to the task execution role to read secrets from AWS Secrets Manager
 7. Create ALB in EC2 console
    - create security group for ALB and add to it
-     - all traffic for port 80 and port 443 from anywhere
+     - allow inbound HTTP and HTTPS traffic from anywhere
      - allow all outbound traffic to ECS tasks (the banksie-sg)
    - create target group for ecs tasks (For an IP but do not add any targets)
-   - add ALB url to frontend
-8. Add new files to S3 bucket
+   - Add ALB url to frontend code files
+   - Add new files to S3 bucket
 9. Create a service
    - Add task definition previously created
    - Choose capacity provider strategy (FARGATE)
    - Desired tasks = 1
    - Networking
-     - Choose default VPC
+     - Choose VPC (same as database)
      - Choose at least 2 subnets
-   - Add application load balancer
+   - Create security group that allows HTTP/HTTPS traffic from ALB on port 80
+   - Add ALB that was previously created
    - Service will have an error until we push an image (Next Step)
 10. Push Docker image to ECR via AWs CLI
    1. Configure AWS CLI credentials
