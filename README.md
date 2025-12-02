@@ -8,7 +8,7 @@
       <ul>
         <li><a href="#-tech">Tech</a></li>
         <ul>
-          <li><a href="#-application">Application</a></li>
+          <li><a href="#application">Application</a></li>
           <li><a href="#aws-infrastructure">AWS Infrastructure</a></li>
           <li><a href="#devops--cicd">DevOps / CI/CD</a></li>
           <li><a href="#dev-tools">Dev Tools</a></li>
@@ -18,9 +18,9 @@
     <li>
       <a href="#%EF%B8%8F-architecture-setup">Architecture Setup</a>
       <ul>
-        <li><a href="#-frontend">Frontend</a></li>
-        <li><a href="#-database">Database</a></li>
-        <li><a href="#-backend">Backend</a></li>
+        <li><a href="#%EF%B8%8F-frontend">Frontend</a></li>
+        <li><a href="#%EF%B8%8F-database">Database</a></li>
+        <li><a href="#%EF%B8%8F-backend">Backend</a></li>
       </ul>
     </li>
     <li><a href="#-troubleshooting">Troubleshooting</a></li>
