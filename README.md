@@ -1,5 +1,39 @@
 # Banksie App Deployment
 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#-overview">Overview</a>
+      <ul>
+        <li><a href="#-tech">Tech</a></li>
+        <ul>
+          <li><a href="#-application">Application</a></li>
+          <li><a href="#aws-infrastructure">AWS Infrastructure</a></li>
+          <li><a href="#devops--cicd">DevOps / CI/CD</a></li>
+          <li><a href="#dev-tools">Dev Tools</a></li>
+        </ul>
+      </ul>
+    </li>
+    <li>
+      <a href="#-getting-started">Architecture Setup</a>
+      <ul>
+        <li><a href="#-prerequisites">Troubleshooting</a></li>
+        <li>
+          <a href="#%EF%B8%8F-installation">Installation</a>
+          <ul>
+            <li><a href="#%EF%B8%8F-frontend">Frontend</a></li>
+            <li><a href="#-backend">Backend</a></li>
+            <li><a href="#-docker">Docker</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
 ## ❓ Overview
 In this project, I successfully deployed a multi-tier cloud-based banking app in AWS using S3, ECS, and RDS using the CLI and Github Actions. 
 For more screenshots, click [here](./screenshots)
