@@ -157,8 +157,8 @@ For more screenshots, click [here](./screenshots)
    14. Pushed Docker image to ECR via AWS CLI
       - Configured AWS CLI credentials using access keys from IAM user created
        ![Configure credentials](./screenshots/cli-configure.png)
-       
       - Logged into ECR
+
        ![ECR Login](./screenshots/ecr-login.png)
       - Built/tagged docker image
       - Pushed image to ECR
