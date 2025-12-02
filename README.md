@@ -161,11 +161,61 @@ For more screenshots, click [here](./screenshots)
       - Pushed image to ECR
        ![Configure credentials](./screenshots/cli-configure.png)
        ![ECR Login](./screenshots/ecr-login.png)
-       ![Build image](./screenshots/buildimage.png)
+       ![Build image](./screenshots/build-image.png)
    16. Updated the service using a revised task with the "latest" image
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
        - Created workflow (.yml file)
+       ```yaml
+       name: Deploy App to AWS ECS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and push Docker image to ECR
+        run: |
+          docker build -f backend/Dockerfile -t ${{ secrets.ECR_REPO }}:latest backend/
+          docker push ${{ secrets.ECR_REPO }}:latest
+
+      - name: Fetch ECS Task Definition
+        run: |
+          aws ecs describe-task-definition --task-definition banksie-task --query taskDefinition > task-definition.json
+
+      - name: Update task definition
+        id: updated-task
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition.json   
+          container-name: banksie-container                        
+          image: ${{ secrets.ECR_REPO }}:latest
+
+      - name: Deploy to Amazon ECS
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: ${{ steps.updated-task.outputs.task-definition }}
+          cluster: ${{ vars.ECS_CLUSTER }}
+          service: ${{ vars.ECS_SERVICE }}
+          wait-for-service-stability: true```
       
 ## 🚧 Troubleshooting
 I encountered several problems throughout creating this architecture and deploying this app. Here are a list of some of the problems I encountered and how I fixed them:
