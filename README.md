@@ -31,8 +31,12 @@
 
 ## ❓ Overview
 In this project, I successfully deployed a multi-tier cloud-based banking app in AWS using S3, ECS, and RDS using the CLI and Github Actions. 
-![Frontend Diagram](./architecture-diagrams/frontend-diagram.pdf)
-![Backend Diagram](./architecture-diagrams/backend-diagram.pdf)
+
+### Frontend 
+![Frontend Diagram](./architecture-diagrams/frontend-diagram.png)
+
+### Backend and Database
+![Backend Diagram](./architecture-diagrams/backend-diagram.png)
 For more screenshots, click [here](./screenshots)
 
 ## 🧰 Tech
@@ -80,6 +84,7 @@ For more screenshots, click [here](./screenshots)
       - Once certificate was issued, added certificate to CF distribution
       - Added index.html as the default root object in the CF distribution
       - Wait for CF distribution to redeploy
+      ![Hosted Zone Records](./screenshots/hosted-zone-records.png)
      
 ### 🛢️ Database
    1. Created a database in RDS
@@ -103,6 +108,7 @@ For more screenshots, click [here](./screenshots)
       1. Attached policies:
          - AmazonEC2ContainerRegistryFullAccess - allows user to use AWS ECR
          - AmazonECS_FullAccess - allows user to use AWS ECS
+        ![Github User](./screenshots/github-user-create.PNG)
       2. Generated access key for the user to be user later
    3. Created repository for ECS image in AWS ECR
    4. Created an ECS Cluster
@@ -117,8 +123,10 @@ For more screenshots, click [here](./screenshots)
         - Add image URI (add :latest at the end)
         - Define port mapping = TCP Port 80 HTTP (Gunicorn is listening on port 80 in flask app)
    6. Revised the task definition with JSON to include the secret made using the secret arn
-   7. Created and attached an inline policy to the task execution role to read secrets from AWS Secrets Manager
-   8. Created ALB in EC2 console
+      ![Secrets](./screenshots/revise-json-secrets.png)
+   8. Created and attached an inline policy to the task execution role to read secrets from AWS Secrets Manager
+      ![Update Task Role](./screenshots/update-task-role.png)
+   10. Created ALB in EC2 console
       - Added listener for HTTP and HTTPS
         - Requested new ACM certificate for api.banksie.app
         - Added A record to Route 53 for api.banksie.app (will need time to propagate)
@@ -130,11 +138,11 @@ For more screenshots, click [here](./screenshots)
         - in Flask app add route for /health to return code 200
       - Add ALB url to frontend code files
       - Add new files to S3 bucket
-   9. Created security group to be used by ECS tasks (banksie-sg)
+   11. Created security group to be used by ECS tasks (banksie-sg)
        - Allow HTTP traffic from ALB created on port 80
        - Allow outbound traffic to RDS database
        - Modified the ALB security group to allow outbound traffic to this security group
-   10. Created a service (banksie-task-service)
+   12. Created a service (banksie-task-service)
       - Added task definition previously created (banksie-task)
       - Choose capacity provider strategy (FARGATE)
       - Desired tasks = 1
@@ -144,15 +152,15 @@ For more screenshots, click [here](./screenshots)
       - Added banksie-sg security group previously created
       - Added ALB that was previously created
       - Service will have an error until we push an image
-   11. Configured RDS security group previously created
+   13. Configured RDS security group previously created
       - Added inbound rule so the task security group (banksie-sg) can access the RDS on port 5432
-   12. Pushed Docker image to ECR via AWS CLI
+   14. Pushed Docker image to ECR via AWS CLI
       - Configured AWS CLI credentials using access keys from IAM user created
       - Logged into ECR 
       - Built/tagged docker image
       - Pushed image to ECR
-   13. Updated the service using a revised task with the "latest" image
-   14. Set up Github Actions for automatic deployments
+   15. Updated the service using a revised task with the "latest" image
+   16. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
        - Created workflow (.yml file)
       
