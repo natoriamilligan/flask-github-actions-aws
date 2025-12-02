@@ -31,6 +31,8 @@
 
 ## ❓ Overview
 In this project, I successfully deployed a multi-tier cloud-based banking app in AWS using S3, ECS, and RDS using the CLI and Github Actions. 
+![Frontend Diagram](./architecture-diagrams/frontend-diagram)
+![Backend Diagram](./architecture-diagrams/backend-diagram)
 For more screenshots, click [here](./screenshots)
 
 ## 🧰 Tech
