@@ -105,11 +105,11 @@ For more screenshots, click [here](./screenshots)
      
 ### ⚙️ Backend
    1. Created an IAM user to handle ECR and ECS 
-      1. Attached policies:
+      - Attached policies:
          - AmazonEC2ContainerRegistryFullAccess - allows user to use AWS ECR
          - AmazonECS_FullAccess - allows user to use AWS ECS
         ![Github User](./screenshots/github-user-create.PNG)
-      2. Generated access key for the user to be user later
+      - Generated access key for the user to be user later
    3. Created repository for ECS image in AWS ECR
    4. Created an ECS Cluster
    5. Created a Task Definition
@@ -155,64 +155,14 @@ For more screenshots, click [here](./screenshots)
    14. Configured RDS security group previously created
        - Added inbound rule so the task security group (banksie-sg) can access the RDS on port 5432
    15. Pushed Docker image to ECR via AWS CLI
-      - Configured AWS CLI credentials using access keys from IAM user created
-      - Logged into ECR
-      - Built/tagged docker image
-      - Pushed image to ECR
+       - Configured AWS CLI credentials using access keys from IAM user created
+       - Logged into ECR
+       - Built/tagged docker image
+       - Pushed image to ECR
    16. Updated the service using a revised task with the "latest" image
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
-       - Created workflow (.yml file)
-       ```yaml
-       name: Deploy App to AWS ECS
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v5
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ vars.AWS_REGION }}
-
-      - name: Login to Amazon ECR
-        uses: aws-actions/amazon-ecr-login@v2
-
-      - name: Build and push Docker image to ECR
-        run: |
-          docker build -f backend/Dockerfile -t ${{ secrets.ECR_REPO }}:latest backend/
-          docker push ${{ secrets.ECR_REPO }}:latest
-
-      - name: Fetch ECS Task Definition
-        run: |
-          aws ecs describe-task-definition --task-definition banksie-task --query taskDefinition > task-definition.json
-
-      - name: Update task definition
-        id: updated-task
-        uses: aws-actions/amazon-ecs-render-task-definition@v1
-        with:
-          task-definition: task-definition.json   
-          container-name: banksie-container                        
-          image: ${{ secrets.ECR_REPO }}:latest
-
-      - name: Deploy to Amazon ECS
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
-        with:
-          task-definition: ${{ steps.updated-task.outputs.task-definition }}
-          cluster: ${{ vars.ECS_CLUSTER }}
-          service: ${{ vars.ECS_SERVICE }}
-          wait-for-service-stability: true```
+       - Created workflow [See yaml file](./deploy.yml)
       
 ## 🚧 Troubleshooting
 I encountered several problems throughout creating this architecture and deploying this app. Here are a list of some of the problems I encountered and how I fixed them:
