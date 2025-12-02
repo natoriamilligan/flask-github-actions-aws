@@ -76,6 +76,7 @@ For more screenshots, click [here](./screenshots)
       - Created a hosted zone (named hosted zone the root domain: banksie.app)
       - Added Route 53 nameservers for the hosted zone to the domain registrar used to register domain
       - Made sure nameservers propagated (Can take up to 48 hours)
+  ![Hosted Zone Records](./screenshots/hosted-zone-records.png)
    4. Created a CloudFront distribution with the origin as the S3 bucket 
    5. Added root domain (banksie.app) and subdomain (www.banksie.app) as alternate domains for CF distribution
    6. Requested SSL Certificate from AWS Certificate Manager
