@@ -1,11 +1,11 @@
 # Banksie App Deployment
 
-## Overview
+## ❓ Overview
 In this project, I successfully deployed a multi-tier cloud-based banking app in AWS using S3, ECS, and RDS. 
 
-## Architecture Setup
+## 🏗️ Architecture Setup
 
-### Frontend
+### 🖥️ Frontend
 1. Registered a domain using a domain registrar (banksie.app)
 2. Created a private S3 bucket with the same name as the root domain and added frontend files
 3. Used Route 53 as the DNS service for the domain 
