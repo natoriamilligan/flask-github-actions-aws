@@ -169,7 +169,7 @@ I encountered several problems throughout creating this architecture and deployi
 
 Natoria Milligan - [@natoriamilligan](https://x.com/natoriamilligan) - natoriamilligan@gmail.com - [LinkedIn](https://www.linkedin.com/in/natoriamilligan)
 
-Project Link: [https://github.com/natoriamilligan/Python-Simple-Banking-System](https://github.com/natoriamilligan/app-deployment)
+Project Link: [https://github.com/natoriamilligan/app-deployment](https://github.com/natoriamilligan/app-deployment)
 
 Banksie App Link: [https://github.com/natoriamilligan/Python-Simple-Banking-System](https://github.com/natoriamilligan/Python-Simple-Banking-System)
    
