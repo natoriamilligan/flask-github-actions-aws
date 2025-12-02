@@ -82,8 +82,8 @@
    2. Log into ECR 
    3. Build/tag docker image
    4. Push image
-11. Force new deployment for your service with the new image and revised task to include the image
-14. Set up Github Actions for automatic deployments
+12. Force new deployment for your service with the new image and revised task to include the image
+13. Set up Github Actions for automatic deployments
     1. Add secrets and variables to the Github repository
     2. Create workflow (.yml file)
 
