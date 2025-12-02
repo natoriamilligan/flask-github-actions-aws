@@ -20,3 +20,23 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
       3. Once certificate was issued, added certificate to CF distribution
       5. Added index.html as the default root object in the CF distribution
       6. Wait for CF distribution to redeploy
+     
+### 🛢️ Database
+   1. Create a database in RDS
+      - Choose full configuration
+      - PostgreSQL
+      - Free tier
+      - Created username and password
+      - Choose instance configuration (Burstable classes / db.t3.micro)
+      - Storage type: General Purpose SSD, 20 GiB
+      - Choose VPC (must be the same that ECS tasks use)
+      - Created new VPC security group to be configured later
+      - Port: 5432
+   2. Added the database endpoint to Flask app
+   3. Created environment variable in AWS Secrets Manager console for database URL
+      - Added a secret for the database URL
+      - Choose "other type of secret"
+      - Added database URL in plain text
+     
+### ⚙️ Backend
+
