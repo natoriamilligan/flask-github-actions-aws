@@ -166,7 +166,7 @@ For more screenshots, click [here](./screenshots)
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
        - Created workflow [(See file)](./deploy.yml)
-       - 
+         
 ### Running Task and Healthy ALB        
 ![Running ALB and Task](./screenshots/running-healthy-alb.PNG)
 
