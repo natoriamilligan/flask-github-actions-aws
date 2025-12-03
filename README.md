@@ -37,6 +37,9 @@ In this project, I successfully deployed a multi-tier cloud-based banking app in
 
 ### Backend and Database
 ![Backend Diagram](./architecture-diagrams/backend-diagram.png)
+
+### Live Website
+![Live Website](./screenshots/app-home-live.png)
 For more screenshots, click [here](./screenshots)
 
 ## 🧰 Tech
