@@ -84,11 +84,11 @@ For more screenshots, click [here](./screenshots)
    6. Requested SSL Certificate from AWS Certificate Manager
       - Included root domain and subdomain in certificate
       - ACM added CNAME records and A/AAAA records to the hosted zone, but this can be done manually
+![Hosted Zone Records](./screenshots/hosted-zone-records.png)
       - Once certificate was issued, added certificate to CF distribution
 ![CF Distribution](./screenshots/cf-deployed.PNG)
       - Added index.html as the default root object in the CF distribution
       - Wait for CF distribution to redeploy
-      ![Hosted Zone Records](./screenshots/hosted-zone-records.png)
      
 ### 🛢️ Database
    1. Created a database in RDS
