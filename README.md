@@ -81,11 +81,11 @@ For more screenshots, click [here](./screenshots)
       - Made sure nameservers propagated (Can take up to 48 hours)
    4. Created a CloudFront distribution with the origin as the S3 bucket 
    5. Added root domain (banksie.app) and subdomain `www.banksie.app` as alternate domains for CF distribution
-![CF Distribution](./screenshots/cf-deployed.PNG)
    6. Requested SSL Certificate from AWS Certificate Manager
       - Included root domain and subdomain in certificate
       - ACM added CNAME records and A/AAAA records to the hosted zone, but this can be done manually
       - Once certificate was issued, added certificate to CF distribution
+![CF Distribution](./screenshots/cf-deployed.PNG)
       - Added index.html as the default root object in the CF distribution
       - Wait for CF distribution to redeploy
       ![Hosted Zone Records](./screenshots/hosted-zone-records.png)
