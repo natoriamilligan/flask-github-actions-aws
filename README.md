@@ -179,6 +179,21 @@ I encountered several problems throughout creating this architecture and deployi
    
 4. I originally did not have an ALB, but when I added one, my tasks would fail. The ALB came back with a 404 error code. I did not have a health check path so I created one in my app and added the path to the target group (/health) to return an ok 200.
 
+## What I Learned
+- How to use Route 53 DNS service for an existing domain
+- How to create alias records in Route 53 to access AWS resources
+- How to create an SSL certificate with AWS Certificate Manager and attach it to a CloudFront Distribution/ALB
+- How to create cache invalidations
+- AWS ECR and how to push an image via the CLI
+- ECS service deployment rollbacks use the image digest saved in a container and not the latest image created
+- How to add secrets and variables to Github repository
+- How to automate deployment with Github Actions
+- How to set up ALB health checks for an app
+- How to use CloudWatch to debug my ECS tasks
+- How to set up secure security groups
+- How to create secrets in AWS Secrets Manager
+- How TLs certificates verify domains/endpoints and encrypt traffic
+
 ## 📫 Contact
 
 Natoria Milligan - [@natoriamilligan](https://x.com/natoriamilligan) - natoriamilligan@gmail.com - [LinkedIn](https://www.linkedin.com/in/natoriamilligan)
