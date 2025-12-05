@@ -1,4 +1,4 @@
-# Banksie App Deployment
+# Full-Stack Flask Application Deployed on AWS with Github Actions
 
 <details>
   <summary>Table of Contents</summary>
@@ -30,7 +30,7 @@
 
 
 ## ❓ Overview
-In this project, I successfully deployed a multi-tier cloud-based banking app in AWS using S3, ECS, and RDS using the CLI and Github Actions. 
+Built and deployed a scalable multi-tier banking application on AWS, leveraging S3, ECS, and RDS, and automated the backend deployment process through a GitHub Actions CI/CD pipeline.
 
 ### Frontend 
 ![Frontend Diagram](./architecture-diagrams/frontend-diagram.png)
@@ -84,10 +84,11 @@ For more screenshots, click [here](./screenshots)
    6. Requested SSL Certificate from AWS Certificate Manager
       - Included root domain and subdomain in certificate
       - ACM added CNAME records and A/AAAA records to the hosted zone, but this can be done manually
+![Hosted Zone Records](./screenshots/hosted-zone-records.png)
       - Once certificate was issued, added certificate to CF distribution
       - Added index.html as the default root object in the CF distribution
       - Wait for CF distribution to redeploy
-      ![Hosted Zone Records](./screenshots/hosted-zone-records.png)
+    ![CF Distribution](./screenshots/cf-deployed.PNG)
      
 ### 🛢️ Database
    1. Created a database in RDS
@@ -165,19 +166,23 @@ For more screenshots, click [here](./screenshots)
    16. Updated the service using a revised task with the "latest" image
    17. Set up Github Actions for automatic deployments
        - Added secrets and variables to the Github repository
+![Repo Secrets](./screenshots/repo-secrets.PNG)
+![Repo Variables](./screenshots/repo-variables.PNG)
        - Created workflow [(See file)](./deploy.yml)
-      ![Running ALB and Task](./screenshots/running-healthy-alb.PNG)
+         
+### Running/Healthy Task        
+![Running ALB and Task](./screenshots/running-healthy-alb.PNG)
 
 ## 🚧 Troubleshooting
 I encountered several problems throughout creating this architecture and deploying this app. Here are a list of some of the problems I encountered and how I fixed them:
 
-1. When I first created the yaml file for Github Actions I kept encountering an error "key enableFaultInjection" which was related to my task definition. I tried deleting the key from the task definition JSON file but that still did't fix the problem. The tasks would only fail if they were started via Github Actions but not if I pushed an image manually to ECR. I realized that I was using the wrong version for the action invocation for aws-actions/amazon-ecs-deploy-task-definition. I need to be using version 2 but I was using version 1. I assume there was a bug that was fixed.
+1. When I first created the yaml file for Github Actions I kept encountering an error "key enableFaultInjection" which was related to my task definition. I tried deleting the key from the task definition JSON file but that still didn't fix the problem. The tasks would only fail if they were started via Github Actions but not if I pushed an image manually to ECR via the CLI. I realized that I was using the wrong version for the action invocation for aws-actions/amazon-ecs-deploy-task-definition. I needed to be using version 2 but I was using version 1. I assume there was a bug that was fixed.
     
-2. After I fixed the Github Actions problem, my tasks would still fail. In CloudWatch I saw that my environment variable for the database url could not be read. I realized that the variable was stored in a .env file that I did not push and that I need to added the variable as a secret in AWS Secrets Manager. Then I revised the task definition using JSON and added a secrets key.
+2. After I fixed the Github Actions problem, my tasks would still fail. In CloudWatch I saw that my environment variable for the database url could not be read. I realized that the variable was stored in a .env file on my local computer that I did not push and that I needed to add the variable as a secret in AWS Secrets Manager. Then I revised the task definition using JSON and added a secrets key.
 
 3. My tasks would also fail because the tables in the ECR image did not match the tables in RDS. I must have changed my tables at some point and never migrated the changes. Migrating fixed the problem.
    
-4. I originally did not have an ALB, but when I added one, my tasks would fail. The ALB came back with a 404 error code. I did not have a health check path so I created one in my app and added the path to the target group (/health) to return an ok 200.
+4. I originally did not have an ALB, but when I added one, my tasks failed again. The ALB came back with a 404 error code. I did not have a health check path so I created one in my app and added the path to the target group (/health) to return an ok 200.
 
 ## What I Learned
 - How to use Route 53 DNS service for an existing domain
@@ -198,7 +203,7 @@ I encountered several problems throughout creating this architecture and deployi
 
 Natoria Milligan - [@natoriamilligan](https://x.com/natoriamilligan) - natoriamilligan@gmail.com - [LinkedIn](https://www.linkedin.com/in/natoriamilligan)
 
-Project Link: [https://github.com/natoriamilligan/app-deployment](https://github.com/natoriamilligan/app-deployment)
+Project Link: [https://github.com/natoriamilligan/app-deployment](https://github.com/natoriamilligan/flask-github-actions-aws)
 
 Banksie App Link: [https://github.com/natoriamilligan/Python-Simple-Banking-System](https://github.com/natoriamilligan/Python-Simple-Banking-System)
    
