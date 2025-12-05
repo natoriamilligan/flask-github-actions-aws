@@ -24,6 +24,7 @@
       </ul>
     </li>
     <li><a href="#-troubleshooting">Troubleshooting</a></li>
+    <li><a href="#-what-i-learned">What I Learned</a></li>
     <li><a href="#-contact">Contact</a></li>
   </ol>
 </details>
@@ -184,7 +185,7 @@ I encountered several problems throughout creating this architecture and deployi
    
 4. I originally did not have an ALB, but when I added one, my tasks failed again. The ALB came back with a 404 error code. I did not have a health check path so I created one in my app and added the path to the target group (/health) to return an ok 200.
 
-## What I Learned
+## 🧠 What I Learned
 - How to use Route 53 DNS service for an existing domain
 - How to create alias records in Route 53 to access AWS resources
 - How to create an SSL certificate with AWS Certificate Manager and attach it to a CloudFront Distribution/ALB
