@@ -102,7 +102,7 @@ For more screenshots, click [here](./screenshots)
       - Choose VPC (must be the same that ECS tasks use)
       - Created new VPC security group to be configured later (flask-rds-sg)
       - Port: 5432
-   2. Added the database endpoint to Flask app
+   2. Added the database endpoint to Flask app .env file
    3. Created environment variable in AWS Secrets Manager console for database URL
       - Added a secret for the database URL
       - Choose "other type of secret"
