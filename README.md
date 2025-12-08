@@ -198,7 +198,7 @@ I encountered several problems throughout creating this architecture and deployi
 - How to use CloudWatch to debug my ECS tasks
 - How to set up secure security groups
 - How to create secrets in AWS Secrets Manager
-- How TLs certificates verify domains/endpoints and encrypt traffic
+- How TLS certificates verify domains/endpoints and encrypt traffic
 
 ## 📫 Contact
 
