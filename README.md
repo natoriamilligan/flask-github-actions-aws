@@ -136,11 +136,14 @@ For more screenshots, click [here](./screenshots)
       - Added listener for HTTP and HTTPS
         - Requested new ACM certificate for api.banksie.app
         - Added A record to Route 53 for api.banksie.app (will need time to propagate)
+          
       - Created a security group for ALB (flask-app-alb-sg)
         - Allow inbound HTTP and HTTPS traffic from anywhere
+        
       - Created target group for ecs tasks (For an IP but do not add any targets)
         - Add health check path as /health
         - In Flask app added route for /health to return code 200
+        
       - Add ALB url to frontend code files
       - Add new files to S3 bucket
    11. Created security group to be used by ECS tasks (banksie-sg)
