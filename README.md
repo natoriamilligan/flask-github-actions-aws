@@ -134,7 +134,7 @@ For more screenshots, click [here](./screenshots)
       ![Update Task Role](./screenshots/update-task-role.PNG)
       
    10. Created ALB in EC2 console
-     1. Added listener for HTTP and HTTPS
+       - Added listener for HTTP and HTTPS
        - Requested new ACM certificate for api.banksie.app
        - Added A record to Route 53 for api.banksie.app (will need time to propagate)
        - Created a security group for ALB (flask-app-alb-sg)
