@@ -1,4 +1,4 @@
-# Full-Stack Flask Application Deployed on AWS with Github Actions
+# Full-Stack Flask Application Deployed on AWS ECS with Github Actions
 
 <details>
   <summary>Table of Contents</summary>
